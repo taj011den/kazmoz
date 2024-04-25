@@ -1,0 +1,264 @@
+{% extends "../base.html" %}
+{% block content %}
+
+
+
+{%for demolish_order in demolish_orders%}
+{{demolish_order.id}}
+
+
+{%endfor %}
+
+
+
+<style>
+
+    /* Grid Layout */
+    .requestcontainer {
+        display: grid;
+        grid-template-columns: repeat(2, 10fr);
+        grid-gap: 20px;
+        padding: 20px;
+    }
+
+    /* Individual Fields */
+    .field {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        z-index: 2;
+    }
+
+    .field label {
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .field input {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+        .requestcontainer {
+            grid-template-columns: 1fr;
+        }
+    }
+    .logomain { 
+        
+  max-width: 200px;
+  height: auto;
+      }
+      
+
+  
+    .shadow-bottom {
+        box-shadow: 0 3px 5px rgba(0,0,0,0.2);
+        position: relative;
+        z-index: 10;
+        
+    justify-content: center;
+    align-items: center;
+    }
+    .align{
+        
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    }
+    .request{
+        background-color: #c6d0f0;
+    }
+.backgtopform{
+  width: auto;
+  background-color: #2E4281;  
+  border-color: #2E4281; /* لون الحدود أسود */
+  border-style: solid; /* نمط الحدود */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* ظل أكثر عمقًا */
+  border-top-right-radius: 40px; /* زاوية مقطوشة */
+  border-top-left-radius: 10px; /* زاوية مقطوشة */
+  
+  padding-left: 3px;
+
+}
+.fontbackgtopform{
+    
+    font-style: italic;
+    color: #f3f4f7;
+    margin: 0;
+    font-size: 100%;
+    
+    padding-top: 10px;
+    padding-left: 0px;
+    
+    
+  text-align: left;
+}
+.sendformo {
+    font-size: 15px;
+    font-weight: bold;
+    color: #ffffff !important;
+    width: 100%;
+    height: 60px;
+    text-align: center;
+    border: none;
+    margin-top: 1px;    
+    background-color: #2E4281; /* لون الخلفية */
+    padding: 6px 15px; /* المسافة الداخلية */
+    text-transform: uppercase; /* تحويل النص إلى أحرف كبيرة */
+    transition: background-color 0.3s ease; /* انتقال لون الخلفية */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* إضافة ظل */
+    cursor: pointer; /* تغيير مؤشر الماوس */
+    
+    }
+
+
+.form1{
+    
+ 
+    padding-top: 10px;
+    padding-left: 10px;
+    font-size: 16px;
+    color: #999;
+    font-style: italic;
+}
+.hieghinput{
+    width: 100%;
+    height: 100px;
+    resize: vertical;
+    
+  padding-top: 10px;
+  padding-left: 30px; /* زيادة المسافة هنا */
+  font-size: 16px;
+  color: #999;
+  font-style: italic;
+  position: relative;
+}
+.hieghinput::placeholder {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+  .imguptitle{
+    
+  padding-left: 700px;
+  
+  height:80px; 
+  
+  vertical-align: middle;
+
+  }
+  #new-form {
+    background: transparent url(/media/images/demolish.jpg) ;
+}
+
+
+</style>
+
+
+
+
+<div class="row col-md-12 containercard ">
+  
+    <div class="d-grid">
+
+       
+<form   method="POST" class="container my-5">
+  
+    <div class=" row col-md-12  justify-content-center">
+      <h2 class="text-center mb-6">Fordern Sie einen Abbruchdienst an</h2>    
+
+
+      <!--
+
+
+      <div class="col-md-3 shadow-lg p-3 rounded request">
+        <div class="mb-3">
+          <label for="street" class="form-label">Street and House Number</label>
+          <input type="text" class="form-control" id="street" name="street" required>
+        </div>
+        <div class="mb-3">
+          <label for="zipcode" class="form-label">ZIP Code</label>
+          <input type="text" class="form-control" id="zipcode" name="zipcode" required>
+        </div>
+        <div class="mb-3">
+          <label for="city" class="form-label">City</label>
+          <input type="text" class="form-control" id="city" name="city" required>
+        </div>
+        <div class="mb-3">
+          <label for="country" class="form-label">Country</label>
+          <input type="text" class="form-control" id="country" name="country" required>
+        </div>
+      </div>
+
+
+
+
+
+    -->
+
+
+      <div class="col-md-6 shadow-lg p-3 rounded request ">
+        <div class="mb-3">
+       <!--   <label for="full_name" class="form-label">Full Name</label>-->
+        
+       <div class="col-md-6 backgtopform">
+        <div class="d-grid">
+          
+          <h6 class=" mb-4 fontbackgtopform">Bitte geben Sie die gewünschten Abbruchinformationen an</h6>
+        </div>
+      </div>
+
+
+        </div>
+        <div class="mb-3">
+            <!--   <label for="full_name" class="form-label">Full Name</label>-->
+               <input type="text" class="form-control form1" id="full_name" name="full_name" placeholder="Full Name"  required>
+             </div>
+        <div class="mb-3">
+          <input type="email" class="form-control form1" id="email" name="email" placeholder="Email Address"  required>
+        </div>
+        <div class="mb-3">
+          <input type="tel" class="form-control form1" id="phone" name="phone" placeholder="Phone Number"  required>
+        </div>
+        <div class="mb-3">
+          <input type="text" class="form-control form1 hieghinput" id="note" name="note" placeholder="Bestelldetails eingeben" >
+        </div> 
+        <div class="mb-3">
+          
+            <div class="d-grid">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-primary sendformo ">Angebote<br>anfordern</button>
+              </div>    
+              
+        </div>
+        
+      </div>
+
+
+
+
+
+
+
+
+
+    </div>
+
+</form>
+
+
+</div>
+
+    </div>
+
+
+
+
+
+
+
+{% endblock content %}

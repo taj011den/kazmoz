@@ -1,0 +1,262 @@
+{% extends "../base.html" %}
+{% block content %}
+
+<style>
+
+    *
+    {
+        margin: 0;
+        padding: 0;
+        
+        font-family: 'Alfa Slab One', cursive;
+    }
+ 
+       /* Grid Layout */
+       .containerrequests {
+        background-color: white;
+        padding: 2vw; /* 2% of viewport width */
+        border-radius: 2vw; /* 5% of viewport width */
+        box-shadow: 0 0 2vh rgba(0,0,0,0.1); /* 2% of viewport height */
+        margin: 0 auto;
+        width: 80%;
+        overflow-x: auto;
+    }
+
+    /* Individual Fields */
+    .field {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        z-index: 2;
+    }
+
+    .field label {
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .field input {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+        .requestcontainer {
+            grid-template-columns: 1fr;
+        }
+    }
+    .logomain { 
+        
+  max-width: 200px;
+  height: auto;
+      }
+      
+
+  
+    .shadow-bottom {
+        box-shadow: 0 3px 5px rgba(0,0,0,0.2);
+        position: relative;
+        z-index: 10;
+        
+    justify-content: center;
+    align-items: center;
+    }
+    .align{
+        
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    }
+    .request{
+        background-color: #c6d0f0;
+    }
+.backgtopform{
+  width: auto;
+  background-color: #2E4281;  
+  border-color: #2E4281; /* لون الحدود أسود */
+  border-style: solid; /* نمط الحدود */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* ظل أكثر عمقًا */
+  border-top-right-radius: 40px; /* زاوية مقطوشة */
+  border-top-left-radius: 10px; /* زاوية مقطوشة */
+  
+  padding-left: 3px;
+
+}
+.fontbackgtopform{
+    
+    font-style: italic;
+    color: #f3f4f7;
+    margin: 0;
+    font-size: 100%;
+    
+    padding-top: 10px;
+    padding-left: 0px;
+    
+    
+  text-align: left;
+}
+.sendformo {
+    font-size: 15px;
+    font-weight: bold;
+    color: #ffffff !important;
+    width: 100%;
+    height: 60px;
+    text-align: center;
+    border: none;
+    margin-top: 1px;    
+    background-color: #2E4281; /* لون الخلفية */
+    padding: 6px 15px; /* المسافة الداخلية */
+    text-transform: uppercase; /* تحويل النص إلى أحرف كبيرة */
+    transition: background-color 0.3s ease; /* انتقال لون الخلفية */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* إضافة ظل */
+    cursor: pointer; /* تغيير مؤشر الماوس */
+    
+    }
+
+
+.form1{
+    
+ 
+    padding-top: 10px;
+    padding-left: 10px;
+    font-size: 16px;
+    color: #999;
+    font-style: italic;
+}
+.hieghinput{
+    width: 100%;
+    height: 100px;
+    resize: vertical;
+    
+  padding-top: 10px;
+  padding-left: 30px; /* زيادة المسافة هنا */
+  font-size: 16px;
+  color: #999;
+  font-style: italic;
+  position: relative;
+}
+.hieghinput::placeholder {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+  .imguptitle{
+    
+  padding-left: 700px;
+  
+  height:80px; 
+  
+  vertical-align: middle;
+
+  }
+  #new-form {
+    background: transparent url(/media/images/demolish.jpg) ;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #2E4281;
+    color: white;
+}
+
+/* Heading styling */
+h1 {
+    text-align: center;
+    color: #2E4281;
+}
+
+/* Button styling */
+.btn {
+    background-color: #2E4281;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.btn:hover {
+    background-color: #2E4281;
+}
+</style>
+<div class="containerrequests">
+<h1>Order Details</h1>
+<table>
+  <tr>
+    <th>Request Number</th>
+    <td>{{onerequest.id}}</td>
+    
+    
+  </tr>
+  <tr>
+    <th>Student Name</th>
+    <td>{{onerequest.full_name}}</td>
+    
+    
+  </tr>
+  <tr>
+    <th>Phone Number</th>
+    <td>{{onerequest.phone}}</td>
+    
+  </tr>
+  <tr>
+    
+    <th>Email Address</th>
+    <td>{{onerequest.email}}</td>
+  </tr>
+  <tr>
+    <th>Order Type</th>
+    <td>Registration Request</td>
+    
+  </tr>
+  <tr>
+    <th>Order Date</th>
+    <td>{{onerequest.created_at}}</td>
+    
+   
+  </tr>
+  <tr>
+    
+    <th>Order Details</th>
+    <td>I would like to register for the Master's program in Business Administration.</td>
+  </tr>
+
+</table>
+
+
+
+<div style="text-align: center;">
+  <button class="btn">Edit Order</button>
+  <button class="btn">Cancel Order</button>
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+{% endblock content %}

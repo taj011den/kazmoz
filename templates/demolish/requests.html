@@ -1,0 +1,297 @@
+{% extends "../base.html" %}
+{% block content %}
+
+<style>
+
+    *
+    {
+        margin: 0;
+        padding: 0;
+        
+        font-family: 'Alfa Slab One', cursive;
+    }
+ 
+       /* Grid Layout */
+       .requestcontainer {
+        display: grid;
+        grid-template-columns: repeat(2, 10fr);
+        grid-gap: 20px;
+        padding: 20px;
+    }
+
+    /* Individual Fields */
+    .field {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        z-index: 2;
+    }
+
+    .field label {
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .field input {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+        .requestcontainer {
+            grid-template-columns: 1fr;
+        }
+    }
+    .logomain { 
+        
+  max-width: 200px;
+  height: auto;
+  margin-left: 112%;
+      }
+      
+
+  
+    .shadow-bottom {
+        box-shadow: 0 3px 5px rgba(0,0,0,0.2);
+        position: relative;
+        z-index: 10;
+        
+    justify-content: center;
+    align-items: center;
+    }
+    .align{
+        
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    }
+    .request{
+        background-color: #c6d0f0;
+    }
+.backgtopform{
+  width: auto;
+  background-color: #2E4281;  
+  border-color: #2E4281; /* لون الحدود أسود */
+  border-style: solid; /* نمط الحدود */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* ظل أكثر عمقًا */
+  border-top-right-radius: 40px; /* زاوية مقطوشة */
+  border-top-left-radius: 10px; /* زاوية مقطوشة */
+  
+  padding-left: 3px;
+
+}
+.fontbackgtopform{
+    
+    font-style: italic;
+    color: #f3f4f7;
+    margin: 0;
+    font-size: 100%;
+    
+    padding-top: 10px;
+    padding-left: 0px;
+    
+    
+  text-align: left;
+}
+.sendformo {
+    font-size: 15px;
+    font-weight: bold;
+    color: #ffffff !important;
+    width: 100%;
+    height: 60px;
+    text-align: center;
+    border: none;
+    margin-top: 1px;    
+    background-color: #2E4281; /* لون الخلفية */
+    padding: 6px 15px; /* المسافة الداخلية */
+    text-transform: uppercase; /* تحويل النص إلى أحرف كبيرة */
+    transition: background-color 0.3s ease; /* انتقال لون الخلفية */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* إضافة ظل */
+    cursor: pointer; /* تغيير مؤشر الماوس */
+    
+    }
+
+
+.form1{
+    
+ 
+    padding-top: 10px;
+    padding-left: 10px;
+    font-size: 16px;
+    color: #999;
+    font-style: italic;
+}
+.hieghinput{
+    width: 100%;
+    height: 100px;
+    resize: vertical;
+    
+  padding-top: 10px;
+  padding-left: 30px; /* زيادة المسافة هنا */
+  font-size: 16px;
+  color: #999;
+  font-style: italic;
+  position: relative;
+}
+.hieghinput::placeholder {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+  .imguptitle{
+    
+  padding-left: 700px;
+  
+  height:80px; 
+  
+  vertical-align: middle;
+
+  }
+  #new-form {
+    background: transparent url(/media/images/demolish.jpg) ;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    padding: 1px;
+}
+
+.containerrequests {
+    background-color: white;
+    padding: 2vw; /* 2% of viewport width */
+    border-radius: 5vw; /* 5% of viewport width */
+    box-shadow: 0 0 2vh rgba(0,0,0,0.1); /* 2% of viewport height */
+    margin: 0 auto;
+    width: 80%;
+    overflow-x: auto;
+}
+@media (max-width: 768px) {
+    .containerrequests {
+        padding: 3vw;
+        border-radius: 7vw;
+        box-shadow: 0 0 3vh rgba(0,0,0,0.1);
+    }
+}
+
+@media (min-width: 1200px) {
+    .containerrequests {
+        padding: 1.5vw;
+        border-radius: 4vw;
+        box-shadow: 0 0 1.5vh rgba(0,0,0,0.1);
+    }
+}
+h1 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #2E4281 !important;
+    color: white;
+}
+
+tr:hover {
+    background-color: #9aa7c7;
+    cursor: pointer;
+}
+@media (max-width: 768px) {
+    h1 { margin-bottom: 3vh; }
+    th, td { padding: 3vh 3vw; }
+    tr:hover { background-color: #9aa7c7;cursor: pointer; }
+    
+}
+
+@media (min-width: 1200px) {
+    h1 { margin-bottom: 1.5vh; }
+    th, td { padding: 1.5vh 1.5vw; }
+    tr:hover { background-color: #9aa7c7;cursor: pointer; }
+}
+</style>
+
+
+        <form   method="POST" class=" my-5">
+  
+            
+
+            <div class="containerrequests">
+                <h1>Customer Orders</h1>
+
+<!--start table-->
+
+            <div class="row ">
+                 
+                <table  class="table" style="width: 100%;" >
+                    <div >
+                            <thead>
+                                <tr>
+                                    <th>id</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th>created at</th>
+                                    <th>Order</th>
+                                </tr>
+                            </thead>
+                    </div>
+
+                       <div class="col-md-12">
+                            {%for i in requests%}
+                            <tbody >
+                            <script>document.querySelectorAll('.clickable-row').forEach(row => {
+                                    row.addEventListener('click', function() {
+                                      window.location.href = this.dataset.href;
+                                    });
+                                  });</script>
+                                <tr  class="clickable-row" data-href="/main/abbrucharbeiten/requests/{{i.id}}">
+                                    <td><a ></a>{{i.id}}</td>
+                                    <td>{{i.full_name}}</td>
+                                    <td>{{i.email}}</td>
+                                    <td>{{i.phone}}</td>
+                                    <td>{{i.created_at}}</td>
+                                    <td>{{i.note}}</td>
+                                </tr>
+                            
+                                <!-- Add more rows as needed -->
+                            </tbody>
+                    
+                           {% endfor %}
+                        </div>    
+                </table>
+            </div>
+
+<!--end table-->
+
+
+
+        </div>          
+        </form>
+        
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock content %}

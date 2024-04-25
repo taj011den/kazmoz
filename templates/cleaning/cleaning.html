@@ -1,0 +1,91 @@
+{% extends "../base.html" %}
+{% block content %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+   
+
+    .container {
+      text-align: center;
+      background-color: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    
+    .btn {
+        display: inline-block;
+        background-color: #2E4281;
+        color: white;
+        text-decoration: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+      }
+  
+      .btn:hover {
+        background-color: #2E4281;
+      }
+  
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      .maintenance-icon {
+        font-size: 48px;
+        color: #f39c12;
+        margin-bottom: 20px;
+      }
+
+  </style>
+
+  <div class="container">
+    
+    <div class="maintenance-icon">&#9888;</div>
+    <h1>Sorry, we're under maintenance</h1>
+    <p>Our website is currently undergoing scheduled maintenance. We apologize for the inconvenience and appreciate your patience.</p>
+
+    <a href="/main/" class="btn">Back to Home</a>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+{% endblock content %}
+
+ 
+
